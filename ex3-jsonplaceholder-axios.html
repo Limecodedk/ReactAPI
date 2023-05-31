@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eksempel 3 - axios</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.4.0/dist/axios.min.js"></script>
+
+  <script>
+
+    window.onload = () => {
+
+      axios.get('https://jsonplaceholder.typicode.com/posts/')
+
+        .then(response => {
+
+          const posts = response.data
+
+          const postsDiv = document.querySelector('#posts');
+
+          posts.forEach(post => {
+            const h2 = document.createElement('h2');
+            h2.textContent = post.title
+            postsDiv.appendChild(h2)
+
+            const p = document.createElement('p');
+            p.textContent = post.body
+            postsDiv.appendChild(p)
+          });
+
+        })
+        .catch(err => {
+          console.log("Error" + err)
+        })
+    }
+
+  </script>
+
+
+</head>
+
+<body>
+
+  <h1>kald til api med brug af axios</h1>
+  <div id="posts">her skal posts indlæses...</div>
+
+</body>
+
+</html>
