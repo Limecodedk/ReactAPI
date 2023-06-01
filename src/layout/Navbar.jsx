@@ -34,7 +34,13 @@ const Navbar = () => {
             <li><NavLink to="/coinflip">Plat eller krone</NavLink></li>
           </ul>
         </li>
-        <li><NavLink to="/bycykler">Bycykler</NavLink></li>
+        <li className="dropdown">
+          <span className="dropdown-toggle">OpenDataDk</span>
+          <ul className="dropdown-menu">
+            <li><NavLink to="/bycykler">Bycykler</NavLink></li>
+            <li><NavLink to="/bycyklermap">Bycykler Map</NavLink></li>
+          </ul>
+        </li>
         <li><NavLink to="/admin">Admin</NavLink></li>
       </ul>
     </nav>

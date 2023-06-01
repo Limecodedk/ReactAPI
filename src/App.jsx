@@ -22,6 +22,7 @@ import LoveCalculator from './views/rapidAPI/LoveCalculator';
 import Jokes from './views/rapidAPI/Jokes';
 import CoinFlip from './views/rapidAPI/CoinFlip';
 import AarhusBycykel from './views/opendatadk/AarhusBycykel';
+import AarhusBycykelMap from './views/opendatadk/AarhusBycykelMap';
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
           <Route path='/joke' element={<Jokes />} />
           <Route path='/coinflip' element={<CoinFlip />} />
           <Route path='/bycykler' element={<AarhusBycykel />} />
+          <Route path='/bycyklermap' element={<AarhusBycykelMap />} />
           <Route path='*' element={<NotFound />} />
         </Route>
 
