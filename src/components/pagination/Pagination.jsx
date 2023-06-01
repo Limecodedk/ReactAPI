@@ -21,5 +21,6 @@ const Pagination = ({ setCurrentPage, currentPage, itemsPerPage, itemsTotal }) =
     </div>
   )
 }
+/* Poul */
 
 export default Pagination
