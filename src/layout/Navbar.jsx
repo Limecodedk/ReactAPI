@@ -41,6 +41,12 @@ const Navbar = () => {
             <li><NavLink to="/bycyklermap">Bycykler Map</NavLink></li>
           </ul>
         </li>
+        <li className="dropdown">
+          <span className="dropdown-toggle">Vejr app</span>
+          <ul className="dropdown-menu">
+            <li><NavLink to="/vejret">Vejr</NavLink></li>
+          </ul>
+        </li>
         <li><NavLink to="/admin">Admin</NavLink></li>
       </ul>
     </nav>

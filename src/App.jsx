@@ -23,6 +23,7 @@ import Jokes from './views/rapidAPI/Jokes';
 import CoinFlip from './views/rapidAPI/CoinFlip';
 import AarhusBycykel from './views/opendatadk/AarhusBycykel';
 import AarhusBycykelMap from './views/opendatadk/AarhusBycykelMap';
+import CurrentWeather from './views/openweather/CurrentWeather';
 
 function App() {
 
@@ -48,6 +49,7 @@ function App() {
           <Route path='/coinflip' element={<CoinFlip />} />
           <Route path='/bycykler' element={<AarhusBycykel />} />
           <Route path='/bycyklermap' element={<AarhusBycykelMap />} />
+          <Route path='/vejret' element={<CurrentWeather />} />
           <Route path='*' element={<NotFound />} />
         </Route>
 

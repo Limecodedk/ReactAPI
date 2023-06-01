@@ -14,7 +14,8 @@ import icon from 'leaflet/dist/images/marker-icon.png'
 let DefaultIcon = L.icon({
   iconUrl: icon,
   iconSize: [24, 36],
-  iconAnchor: [12, 36]
+  iconAnchor: [12, 36],
+  className: 'marker-icon'
 })
 L.Marker.prototype.options.icon = DefaultIcon;
 
@@ -38,24 +39,22 @@ const AarhusBycykel = () => {
 
   useEffect(() => {
 
-    mapRef.current = L.map('mapcontainer').setView([56.153312034213634, 10.202264476218415], 15);
+    if (!mapRef.current) {
 
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(mapRef.current);
+      mapRef.current = L.map('mapcontainer').setView([56.153312034213634, 10.202264476218415], 15);
 
-    /* let marker = L.marker([56.153312034213634, 10.202264476218415]).addTo(mapRef.current).bindPopup("hej", { autoClose: false }).openPopup(); */
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(mapRef.current);
 
-    //DEfiner layer/lag til markører (så de kan slettes samlet)
-    markersLayerRef.current = L.layerGroup().addTo(mapRef.current)
+      /* let marker = L.marker([56.153312034213634, 10.202264476218415]).addTo(mapRef.current).bindPopup("hej", { autoClose: false }).openPopup(); */
 
-    return () => {
-      if (mapRef.current) {
-        mapRef.current.off()
-        mapRef.current = null
-      }
+      //Definer layer/lag til markører (så de kan slettes samlet)
+      markersLayerRef.current = L.layerGroup().addTo(mapRef.current)
+
     }
+
 
   }, [])
 
@@ -71,7 +70,7 @@ const AarhusBycykel = () => {
 
   return (
     <>
-      <h1>Bycykel</h1>
+      <h1>Bycykel med Maps</h1>
       {isLoading && <Loader />}
 
       {error && <Error />}
