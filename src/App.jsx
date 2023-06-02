@@ -24,6 +24,7 @@ import CoinFlip from './views/rapidAPI/CoinFlip';
 import AarhusBycykel from './views/opendatadk/AarhusBycykel';
 import AarhusBycykelMap from './views/opendatadk/AarhusBycykelMap';
 import CurrentWeather from './views/openweather/CurrentWeather';
+import WeatherDawa from './views/openweather/WeatherDawa';
 
 function App() {
 
@@ -50,6 +51,7 @@ function App() {
           <Route path='/bycykler' element={<AarhusBycykel />} />
           <Route path='/bycyklermap' element={<AarhusBycykelMap />} />
           <Route path='/vejret' element={<CurrentWeather />} />
+          <Route path='/vejrzip' element={<WeatherDawa />} />
           <Route path='*' element={<NotFound />} />
         </Route>
 

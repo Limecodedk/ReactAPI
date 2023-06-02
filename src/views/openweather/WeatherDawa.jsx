@@ -9,11 +9,17 @@ const CurrentWeather = () => {
 
   //init request-hook
   const { data, isLoading, error, makeRequest } = useRequestData()
+  //reques hook - Dawa
+  const { data: dataDAWA, isLoading: isLodingDAWA, error: errorDAWA, makeRequest: makeRequestDAWA } = useRequestData()
 
   useEffect(() => {
-    if (zipcode !== '') {
+    if (zipcode.length === 4 && !isNaN(zipcode)) {
       makeRequest(
-        `https://api.openweathermap.org/data/2.5/weather?zip=${zipcode},dk&units=metric&appid=b79ca7f675fccf7dabb7eccc08c4d2b0`
+        `https://api.openweathermap.org/data/2.5/weather?zip=${zipcode},dk&units=metric&appid=${process.env.REACT_APP_OPENWEATHERKEY}`
+      )
+    } else {
+      makeRequestDAWA(
+        "https://api.dataforsyningen.dk/postnumre/autocomplete?&q=" + zipcode
       )
     }
   }, [zipcode])
@@ -38,11 +44,21 @@ const CurrentWeather = () => {
           minLength="4"
           maxLength="4"
           name="zipcode"
+          autoComplete='off'
           id="zipcode"
+          list='adresseforslag'
           placeholder='Søg efter postnummer'
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+
+          onChange={(e) => setZipcode(e.target.value)}
         />
+
+        <datalist id='adresseforslag'>
+          {
+            dataDAWA && dataDAWA.map(a => <option value={a.postnummer.nr}>{a.tekst}</option>)
+          }
+          {/*   <option value="8000">Aarhus</option> */}
+        </datalist>
+
       </form>
 
       {data && (

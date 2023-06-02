@@ -45,6 +45,7 @@ const Navbar = () => {
           <span className="dropdown-toggle">Vejr app</span>
           <ul className="dropdown-menu">
             <li><NavLink to="/vejret">Vejr</NavLink></li>
+            <li><NavLink to="/vejrzip">Vejr Postnummer</NavLink></li>
           </ul>
         </li>
         <li><NavLink to="/admin">Admin</NavLink></li>
