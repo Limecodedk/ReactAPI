@@ -13,7 +13,7 @@ const CurrentWeather = () => {
   useEffect(() => {
     if (zipcode !== '') {
       makeRequest(
-        `https://api.openweathermap.org/data/2.5/weather?zip=${zipcode},dk&units=metric&appid=b79ca7f675fccf7dabb7eccc08c4d2b0`
+        `https://api.openweathermap.org/data/2.5/weather?zip=${zipcode},dk&units=metric&appid=${process.env.REACT_APP_OPENWEATHERKEY}`
       )
     }
   }, [zipcode])
