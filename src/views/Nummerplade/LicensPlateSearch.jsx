@@ -37,7 +37,6 @@ const LicensPlateSearch = () => {
     let day = d.slice(8, 10)
     return (new Date(year, md, day).toLocaleString("da-dk", { year: 'numeric', month: 'long', day: 'numeric' }))
   }
-
   return (
     <>
       <h1>Søg efter nummerplade</h1>
@@ -59,26 +58,28 @@ const LicensPlateSearch = () => {
 
       {data && (
         <article>
-          <p> Data for nummerpladen: {data.registration_number}</p>
-          <li>Status: {data.status}</li>
-          <li>Status dato: {lavDato(data.status_date)}</li>
+          <div className='nummerpladeImg'>
+            <p>{data.registration_number}</p>
+          </div>
           <li>Mærke: {data.make}</li>
           <li>Model: {data.model}</li>
           <li>Motor variant: {data.variant}</li>
+          <li>Status: {data.status}</li>
+          <li>Status dato: {lavDato(data.status_date)}</li>
           <li>Drivekraft: {data.fuel_type}</li>
           <li>Color: {data.color}</li>
           <br />
           {data.is_leasing === true ? (
             <div>
-              <p>Bilen er leaset!</p>
-              <div>{lavDato(data.leasing_from)}</div>
-              <div>{lavDato(data.leasing_to)}</div>
+              <p > <span className='leasing'>Bilen er leaset!</span> I perioden:<br />
+                {lavDato(data.leasing_from)} <br />
+                {lavDato(data.leasing_to)}</p>
             </div>
           ) : (
             <p>Bilen er ikke leaset</p>
           )}
-
         </article>
+
       )}
     </>
   )
