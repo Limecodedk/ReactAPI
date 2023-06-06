@@ -46,6 +46,14 @@ const Navbar = () => {
           <ul className="dropdown-menu">
             <li><NavLink to="/vejret">Vejr</NavLink></li>
             <li><NavLink to="/vejrzip">Vejr Postnummer</NavLink></li>
+            <li><NavLink to="/vejrmap">Vejr map</NavLink></li>
+            <li><NavLink to="/airpollution">Air Pollution</NavLink></li>
+          </ul>
+        </li>
+        <li className="dropdown">
+          <span className="dropdown-toggle">Nummerplade</span>
+          <ul className="dropdown-menu">
+            <li><NavLink to="/nummerplade">Søg efter</NavLink></li>
           </ul>
         </li>
         <li><NavLink to="/admin">Admin</NavLink></li>

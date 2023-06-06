@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Error from '../../components/Error';
 import Loader from '../../components/Loader'
 import useRequestData from '../../hooks/useRequestData'
+import LeafletMap from '../../components/leaflet/LeafletMap';
 
-const CurrentWeatherDawa = () => {
+const CurrentWeatherDawaMap = () => {
   const [zipcode, setZipcode] = useState('');
   const [search, setSearch] = useState('');
 
@@ -34,7 +35,7 @@ const CurrentWeatherDawa = () => {
 
   return (
     <>
-      <h1>Vejr</h1>
+      <h1>Vejr med maps</h1>
       {isLoading && <Loader />}
       {error && <Error />}
 
@@ -56,7 +57,6 @@ const CurrentWeatherDawa = () => {
           {
             dataDAWA && dataDAWA.map(a => <option value={a.postnummer.nr}>{a.tekst}</option>)
           }
-          {/*   <option value="8000">Aarhus</option> */}
         </datalist>
 
       </form>
@@ -74,8 +74,12 @@ const CurrentWeatherDawa = () => {
           <li>Sol ned &#127766;:  kl. {new Date(data.sys.sunset * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</li>
         </article>
       )}
+      {
+        data && <LeafletMap coordinates={[data.coord.lat, data.coord.lon]} />
+      }
+
     </>
   )
 }
 
-export default CurrentWeatherDawa
+export default CurrentWeatherDawaMap

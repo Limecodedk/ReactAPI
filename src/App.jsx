@@ -25,6 +25,10 @@ import AarhusBycykel from './views/opendatadk/AarhusBycykel';
 import AarhusBycykelMap from './views/opendatadk/AarhusBycykelMap';
 import CurrentWeather from './views/openweather/CurrentWeather';
 import WeatherDawa from './views/openweather/WeatherDawa';
+import CurrentWeatherDawaMap from './views/openweather/WeatherDawaMap';
+import WeatherPollution from './views/openweather/WeatherPollution';
+import LicensPlateSearch from './views/Nummerplade/LicensPlateSearch';
+/* import nummerpladSøg from './views/Nummerplade/nummerpladSøg'; */
 
 function App() {
 
@@ -52,6 +56,9 @@ function App() {
           <Route path='/bycyklermap' element={<AarhusBycykelMap />} />
           <Route path='/vejret' element={<CurrentWeather />} />
           <Route path='/vejrzip' element={<WeatherDawa />} />
+          <Route path='/vejrmap' element={<CurrentWeatherDawaMap />} />
+          <Route path='/airpollution' element={<WeatherPollution />} />
+          <Route path='/nummerplade' element={<LicensPlateSearch />} />
           <Route path='*' element={<NotFound />} />
         </Route>
 
