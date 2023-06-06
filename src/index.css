@@ -38,3 +38,9 @@
 .marker-icon {
   background-color: none;
 }
+
+
+#LicensPlateNumber {
+
+  text-transform: uppercase;
+}

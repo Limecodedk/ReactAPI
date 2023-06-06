@@ -59,9 +59,9 @@ const LicensPlateSearch = () => {
 
       {data && (
         <article>
-          <li>Registration nummer: {data.registration_number}</li>
+          <p> Data for nummerpladen: {data.registration_number}</p>
           <li>Status: {data.status}</li>
-          <li>Status dato: {data.status_date}</li>
+          <li>Status dato: {lavDato(data.status_date)}</li>
           <li>Mærke: {data.make}</li>
           <li>Model: {data.model}</li>
           <li>Motor variant: {data.variant}</li>
@@ -69,11 +69,11 @@ const LicensPlateSearch = () => {
           <li>Color: {data.color}</li>
           <br />
           {data.is_leasing === true ? (
-            <>
+            <div>
               <p>Bilen er leaset!</p>
               <div>{lavDato(data.leasing_from)}</div>
               <div>{lavDato(data.leasing_to)}</div>
-            </>
+            </div>
           ) : (
             <p>Bilen er ikke leaset</p>
           )}
